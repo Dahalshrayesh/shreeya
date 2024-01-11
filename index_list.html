@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="description" content="List of Lunar, National and International Events with Public Holidays observed in Nepal" />
+      <meta name="keywords" content="brihat, ratna, bajracharya, events, public holidays, events, national, lunar, international, brihat events, list" />
+      <meta name="author" content="Brihat Ratna Bajracharya" />
+       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+      <meta property="og:title" content="Brihat Ratna Bajracharya" />
+      <meta property="og:image" content="./assets/brihat_events_logo.png" />
+      <meta property="og:type" content="blog" />
+      <meta property="og:site_name" content="Brihat List of Events" />
+      <meta property="og:url" content="https://events.brihatrb.com.np/index_list" />
+      <meta property="og:description" content="Brihat Events' List" />
+
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:site" content="@Brihat9" />
+      <meta name="twitter:title" content="Brihat List of Events" />
+      <meta name="twitter:description" content="List of Lunar, National and International Events with Public Holidays observed in Nepal" />
+      <meta name="twitter:image" content="./assets/brihat_events_logo.png" />
+      <meta name="twitter:image:alt" content="Brihat Events' List" />
+
+      
+      <title></title>
+      <link rel="stylesheet" type="text/css" href="./lunar/jquery.dataTables.min.css.css"/>
+      <link rel="stylesheet" type="text/css" href="./lunar/bootstrap.min.css"/>
+      <link rel="stylesheet" type="text/css" href="./lunar/tithi.css"/>
+      <link rel="stylesheet" type="text/css" href="./lunar/patro/tithi-close.css"/>
+      
+      
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" crossorigin="anonymous"/>
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css" crossorigin="anonymous"/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Laila&display=swap" />
+      
+ 
+      
+      
+      <style>
+        * {
+          font-variant: normal;
+          font-weight: bold;
+          font-size: 17px;
+          font-family: "Laila";
+         
+        }
+
+        .table, .table-primary, .table-success, .table-danger, .table-warning, .table-info, .table-light {
+          --bs-table-striped-color: none;
+          --bs-table-hover-color: none;
+        }
+
+        #event_year {
+          border: none;
+          appearance: none;
+          background-color: white;
+        }
+
+        #event_year:hover {
+          cursor: pointer;
+          border-bottom: 2px solid red;
+        }
+      </style>
+  </head>
+  <body onload="loading_anim();">
+    <div id="loading">
+      
+      <span id="loading_title">Shrayesh Calendar</span>
+      <noscript>Please enable JavaScript and reload</noscript>
+    </div>
+    
+    
+      <select id="event_year" onchange="change_list(this.value);" class="text-success" title="Change BS Year">
+            <option value="2076">बिक्रम संवत २०७६</option>
+            <option value="2077">बिक्रम संवत २०७७</option>
+            <option value="2078">बिक्रम संवत २०७८</option>
+            <option value="2079">बिक्रम संवत २०७९</option>
+            <option value="2080">बिक्रम संवत २०८०</option>
+            <option value="2081">बिक्रम संवत २०८१</option>
+        </select>
+    
+
+    <table id="event_table" class="table table-sm table-primary table-striped table-hover table-borderless" style="width:100%">
+      <thead class="table-dark table align-middle">
+        <input class="favorite styled" type=button  onclick="goBack()"
+        value='🇽'>
+        <script>
+        function goBack() {
+        window.history.back();
+        }
+        </script>
+        <!-- back button -->
+
+        <tr>
+          <th class="text-center" scope="col"></th>
+          <th class="text-center" scope="col"></th>
+          <!-- <th scope="col">Lunar Info</th> -->
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+      <tbody id="table_body" class="table-group-divider"></tbody>
+      <tfoot class="table-dark text-center">
+        <tr>
+          <td colspan="7" class="text-center">
+            Developer Bhupendra Dahal
+          </td>
+        </tr>
+      </tfoot>        
+    </table>
+    <div class="text-center">
+      <a class="text-decoration-none" href="https://events.brihatrb.com.np/"></a>
+    </div>
+    <script>
+      function loading_anim() {
+          document.getElementById('loading').style.display = "none";
+      }
+    </script>
+
+    <script type="text/javascript" src="./js/NS.js"></script>
+    <script type="text/javascript" src="./js/NS_AD.js"></script>
+    <script type="text/javascript" src="./js/NS_BS.js"></script>
+    <script type="text/javascript" src="./js/AD_BS.js"></script>
+    <script type="text/javascript" src="./lunar/event_list.js"></script>
+    
+    <script type="text/javascript" src="./lunar/jquery-3.7.0.min.js"></script>
+    <script type="text/javascript" src="./lunar/jquery.dataTables.min.js"></script>
+   
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="./lunar/index_list.js"></script>
+
+
+   </body>
+</html>

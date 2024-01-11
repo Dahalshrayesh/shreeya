@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Shrayesh Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta property="og:title" content="Shrayesh Calendar" />
+  <meta property="og:image" content="./assets/shrayesh_calendar.png" />
+  <meta property="og:type" content="calendar" />
+  <meta property="og:site_name" content="Shrayesh Calendar" />
+  <meta property="og:url" content="https://calendar.shrayesh.com.np" />
+  <meta property="og:description" content="Shrayesh Calendar" />
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@Brihat9" />
+  <meta name="twitter:title" content="Shrayesh Calendar" />
+  <meta name="twitter:description" content="Bikram Sambat, Anno Domini and Solar Nepal Sambat Calendar (proposed) with Lunar (Pakshya), National, International Events Information and Muhoorttas, Nepalese Public Holidays" />
+  <meta name="twitter:image" content="./assets/shrayesh_calendar.png" />
+  <meta name="twitter:image:alt" content="Shrayesh Calendar" />
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+ <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css'>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="./css/public_holidays.css" />
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/index_cal_conv.css" />
+  <link rel="stylesheet" href="./css/index_details.css" />
+  <link rel="stylesheet" href="./css/parvas.css" />
+  <link rel="stylesheet" href="./css/settings.css" />
+  <link rel="stylesheet" href="./css/muhoortta.css" />
+  <link rel="stylesheet" href="./css/in.css" />
+  <link rel="stylesheet" href="./css/panchang.css" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" href="./assets/logo.svg">
+  <meta name="theme-color" content="#242222">
+ 
+  <link rel="manifest" href="./manifest.json">
+  
+  
+ 
+  <link rel="apple-touch-icon" href="./assets/logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Laila&display=swap" rel="stylesheet">
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VPYN9860PL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VPYN9860PL');
+</script>
+  
+<body onbeforeunload="return on_unload()" onload="loading_anim();">
+  <div id="loading">
+    
+    <span id="loading_title">Shrayesh Patro</span>
+    <noscript>Please enable JavaScript and reload</noscript>
+  </div>
+  <main>
+    <div class="container-md" align="center">
+      <div class="">
+        <h3 class="card-header" id="monthAndYear"></h3>
+      <!-- added on tithi -->
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+            <li class="nav__item">
+                <a href="index.html" class="nav__link active-link">
+                    <i class='bx bx-calendar nav__icon'></i>
+                    <span class="nav__name">Patro</span>
+                </a>
+            </li>
+            
+            <li class="nav__item">
+                <a href="patro.html" class="nav__link">
+                    <i class='bx bx-trophy nav__icon'></i>
+                    <span class="nav__name">Event</span>
+                </a>
+            </li>
+
+            <li class="nav__item">
+                <a href="index_list.html" class="nav__link">
+                    <i class='bx bx-receipt nav__icon'></i>
+                    <span class="nav__name">List Event</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+      
+        <div id="prev_today_next" class="form-inline">
+        <button class="fa fa-chevron-left" id="previous" onclick="previous()"></button>&nbsp;
+          <select class="form-control col-sm-5" name="month" id="month" onchange="jump()"></select>
+        <button class="btn btn-info" id="default" onclick="go_to_today()">आज</button>&nbsp;
+          <label for="year"></label>
+          <select class="form-control col-sm-5" name="year" id="year" onchange="jump()"></select>
+          
+          <button class="fa fa-chevron-right" id="next" onclick="next()"></button>
+        </form>
+      </div>
+        
+        <table class="table table-bordered table-responsive-md mx-auto" id="calendar">
+          <thead>
+            <tr id="table_header_row" align="center"></tr>
+          </thead>
+          <tbody align="center" id="calendar-body"></tbody>
+        </table>
+
+
+       
+
+        <!-- added on 2023 FEB 21 to display muhoorttas BS Calendar -->
+        <div id="muhoortta_box"></div>
+        
+        <!-- added on 2023 NOV 24 to display event list under calendar (different for each calendar view) -->
+        <div id="parvas" style="display: none;"></div>
+
+        <!-- added on 2023 FEB 19 to display public holiday list under AD and Solar Nepal Sambat Calendar -->
+        <div id="public_holiday_box"></div>
+       
+        <button class="btn btn-outline-dark btn-sm" id="print" onclick="print()" style="display: none;">&#x2399; PRINT THIS MONTH &#x2399;</button>
+
+       <!-- For Date Details onClick -->
+      <div class="modal" id="myModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header text-center d-block">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title" id="modal_title">Loading Date ...</h4>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body" id="modal_body">
+              Loading Details ...
+            </div>
+
+            <span id="suggestion" onclick="show_suggest_form()"></span>
+            <span id="suggestion_info"></span>
+            <form id="javascript_form">
+              <input type="text" name="subject" placeholder="Subject" id="suggest_subject" />
+              <textarea name="text" placeholder="Message" id="suggest_message"></textarea>
+              <input type="submit" id="js_send" value="SEND SUGGESTION" />
+
+              <!-- not required, but we'd appreciate it if you'd link to us somewhere on your site -->
+              <span id="credit">Powered by <a href="https://postmail.invotes.com" target="_blank">PostMail</a></span>
+            </form>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <span class="mr-auto" id='modal_author'>Develop by Bhupendra Dahal</span>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- USER INOFS (HIDDEN via CSS) -->
+      <div id="user_info"></div>
+      <div id="g_info"></div>
+    </div>
+
+    <!-- added on 25 OCT 2022: preferences -->
+    <div id="settings"><i class="fa fa-cog fa-3x fa-spin-hover" aria-hidden="true"></i></div>
+
+    <nav id="settings_pane" class="sidebar">
+      <div id="settings_title">PREFERENCES</div>
+      <div id="settings_dismiss" class="dismiss">
+        <i class="fa fa-arrow-left fa-2x"></i>
+      </div>
+      <br /><br />
+      <ul id="preferences_list" class="list-unstyled">
+        <li></li>
+        <hr class="gear_hr" />
+        
+        <li><input type="checkbox" id="check_tithis" onchange="toggle_tithis()" checked autocomplete="off"/><label for="check_tithis">&nbsp;तिथी</label></li>
+        <li><input type="checkbox" id="check_info_box" onchange="toggle_info_box()" autocomplete="off"/><label for="check_info_box">&nbsp;विवरण</label></li>
+        <li><input type="checkbox" id="check_muhoortta_box" onchange="toggle_muhoortta_box()" autocomplete="off"/><label for="check_muhoortta_box">&nbsp;मुहूर्त</label></li>
+       <li><input type="checkbox" id="check_date_jumper" onchange="toggle_date_jumper()" checked autocomplete="off"/><label for="check_date_jumper">&nbsp;मिति जम्पर</label></li>
+        <br />
+        <li>Appearance</li>
+        <hr class="gear_hr" />
+        <li><input type="checkbox" id="invert_color" onchange="toggle_invert_color()" autocomplete="off"/><label for="invert_color">&nbsp;रङ</label></li>
+        <li><input type="checkbox" id="check_pakshya_lang" onchange="toggle_pakshya_lang()" autocomplete="off"/><label for="check_pakshya_lang">&nbsp;पक्ष्य</label></li>
+        <li><input type="checkbox" id="check_public_holiday_lang" onchange="toggle_public_holiday_lang()" autocomplete="off"/><label for="check_public_holiday_lang">&nbsp;बिदहरु</label></li>
+        <li style="margin-top: 10px; font-size: small;"></li>
+        <hr class="gear_hr_2" />
+       <li><input type="checkbox" id="check_lang_info_national" onchange="toggle_lang_info_solarns('national')" autocomplete="off"/><label for="check_lang_info_national">&nbsp;<span>राष्ट्रिय</span></label></li>
+        <li><input type="checkbox" id="check_lang_info_international" onchange="toggle_lang_info_international()" autocomplete="off"/><label for="check_lang_info_international">&nbsp;<span>अन्तर्राष्ट्रिय</span></label></li>
+        <li><input type="checkbox" id="check_lang_info_other" onchange="toggle_lang_info_solarns('other')" autocomplete="off"/><label for="check_lang_info_other">&nbsp;<span>पञ्चाङ</span></label></li>
+      </ul>
+       <div id="config_mgmt">
+        <button id="save_preferences" class="btn btn-info" onclick="save_current_config()">SAVE CURRENT CONFIG</button>
+        <button id="reset_default" class="btn btn-dark" onclick="reset_default_config()">RESTORE DEFAULT CONFIG</button>
+      </div>
+      <br />
+      <div id="setting_pane_author"></div>
+    </nav>
+
+    <!-- <button name="jump" onclick="jump()">Go</button> -->
+
+    <!-- Custom Scripts -->
+    <script src="./js/NS.js"></script>
+    <script src="./js/NS_AD.js"></script>
+    <script src="./js/NS_BS.js"></script>
+    <script src="./js/AD_BS.js"></script>
+    <script src="./js/utils.js"></script>
+    <script src="./js/public_holidays.js"></script>
+    <script src="./js/muhoortta.js"></script>
+    <script src="./js/parvas.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/index_cal_conv.js"></script>
+    <script src="./js/index_details.js"></script>
+    <script src="./js/keypress_actions.js"></script>
+    <script src="./js/settings.js"></script>
+    <script src="./js/swipe_actions.js"></script>
+    
+    
+    
+    <script>
+      function on_window_resize() {
+        let table = document.getElementById("calendar");
+        if (window.innerWidth > 768) {
+          table.classList.remove("w-auto");
+        } else {
+          table.classList.add("w-auto");
+        }
+      }
+      window.onresize = on_window_resize;
+      on_window_resize()
+
+      function on_unload() {
+        // return 'Are you sure you want to leave?';
+      };
+    </script>
+    
+    
+
+    <!-- Optional JavaScript for bootstrap -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.1/sweetalert.min.js"></script>
+
+    <script>
+      function loading_anim() {
+        document.getElementById('loading').style.display = "none";
+        // init_anim();
+      }
+    </script>
+
+    <script>
+       async function registerServiceWorker() {
+        if ("serviceWorker" in navigator) {
+          try {
+            const registration = await navigator.serviceWorker.register(
+              "sw.js"
+            );
+            console.log(
+              "Service Worker registered with scope:",
+              registration.scope
+            );
+          } catch (error) {
+            console.error("Service Worker registration failed:", error);
+          }
+        }
+      }
+
+      registerServiceWorker();
+    </script>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "Shrayesh Calendar",
+  "short_name": "Shrayesh Calendar",
+  "id": "./index.html",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F1F1F1",
+  "theme_color": "#000000",
+  "orientation": "any",
+  "description": "विक्रम संवत - तिथी, मुहूर्त, राष्ट्रिय, अन्तर्राष्ट्रिय घटना, सूर्योदय र सूर्यास्त, र सार्वजनिक बिदाको जानकारी सहितको पात्रो",
+  "icons": [{
+    "src": "./assets/brihat_calendar.png",
+    "type": "image/png",
+    "sizes": "512x512 256x256 192x192 128x128 64x64 32x32"
+  }]
+}

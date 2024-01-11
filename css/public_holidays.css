@@ -1,0 +1,51 @@
+.national_holiday {
+  color: #FF033E;
+  font-size: 18px;
+}
+
+.specific_holiday {
+  color: darkturquoise;
+  font-size: 20px;
+}
+
+#public_holiday_title {
+  font-size: 20px;
+  font-weight: bold;
+  font-variant: small-caps;
+  text-decoration: underline;
+  letter-spacing: 1.5px;
+}
+
+#public_holiday_box {
+  column-width: 300px;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  padding: 2px 2px 2px 2px;
+  border-style: dashed;
+  border-color:#dee2e6;
+  border-width: 3px;
+  line-height: 1.25;
+}
+
+#public_holiday_box > span {
+  font-family: 'Laila', sans-serif;
+  display: inline-block;
+  margin-left: 30px;
+  text-indent: -30px;
+}
+
+
+@media only screen and (max-width: 768px) {
+  #public_holiday_box {
+    width: 85%;
+  }
+}
+
+
+@media only screen and (max-width: 425px) {
+  #public_holiday_box {
+      width: 90%;
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" type="text/css" href="./lunar/patro/patro1.css"/>
+    <link rel="stylesheet" type="text/css" href="./lunar/patro/patro2.css"/>
+    <link rel="stylesheet" href="./lunar/patro/patro.css"/>
+   
+   
+    <style>
+
+        
+        * {
+          font-variant: normal;
+          font-weight: bold;
+          font-size: 22px;
+          font-family: "Laila";
+        }
+
+        .table, .table-primary, .table-success, .table-danger, .table-warning, .table-info, .table-light {
+          --bs-table-striped-color: none;
+          --bs-table-hover-color: none;
+        }
+
+        #event_year {
+          border: none;
+          appearance: none;
+          background-color: white;
+        }
+
+        #event_year:hover {
+          cursor: pointer;
+          border-bottom: 2px solid red;
+        }
+      </style>
+    <title></title>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TL6DN30DV4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TL6DN30DV4');
+</script>
+
+<body onload="loading_anim();">
+    <div id="loading">
+       
+      
+      </div>
+    <div id="top">
+        <div id="compiled_by_header"><span id="list_view" style="position: absolute; right:5px;"><a style="color: darkblue; text-decoration: none;" href="./index_list.html"></a></span></div>
+        <div id="option_div">
+            <!-- back button -->
+   <input class="favorite styled" type=button  onclick="goBack()"
+   value='🇽'>
+
+   <script>
+   function goBack() {
+   window.history.back();
+   }
+   </script>
+   <!-- back button -->
+            <div class="nav_div" id="lunar_events" type=button onclick="show_content(2);">सबै कार्यक्रम र बिदाहरू</div>
+            
+           
+        </div>
+    </div>
+    <div id = "year_select" class="public">
+        <label for="year"></label> 
+        <select name="year" id="year" onchange="show_content();">
+           
+            
+            <option value="2080"selected>२०८०</option>
+        </select>
+    </div>
+    <div id="main_div"></div>
+    <div id="special_note"></div>
+    <div id="compiled_by_footer">Develop by: Bhupendra</div>
+    <script>
+        function loading_anim() {
+            document.getElementById('loading').style.display = "none";
+        }
+    </script>
+    <script type="text/javascript" src="./js/NS.js"></script>
+    <script type="text/javascript" src="./js/NS_AD.js"></script>
+    <script type="text/javascript" src="./js/NS_BS.js"></script>
+    <script type="text/javascript" src="./js/AD_BS.js"></script>
+    <script type="text/javascript" src="./lunar/patro/addons.js"></script>
+    <script type="text/javascript" src="./lunar/patro/constants.js"></script>
+    <script type="text/javascript" src="./lunar/patro/patro.js"></script>
+    <script type="text/javascript" src="./lunar/patro/swipe_actions.js"></script>
+</body>
+</html>

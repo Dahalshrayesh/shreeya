@@ -1,0 +1,269 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Laila";
+    font-variant: small-caps;
+    user-select: none;
+    
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}
+
+html, body {
+    scrollbar-width: none;
+}
+
+#loading {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    background-color: white;
+    z-index: 99;
+}
+
+#loading_anim {
+    height: 25%;
+    line-height: 1000%;
+}
+
+#loading_title {
+    padding-top: 10px;
+    font-size: xx-large;
+    color: darkcyan;
+}
+
+#compiled_by_header, #compiled_by_footer {
+    text-align: center;
+}
+
+hr {
+    color: darkcyan;
+    height: 2px;
+    background-color: darkcyan;
+}
+
+#option_div {
+    display: flex;
+    justify-content: space-around;
+    font-size: x-large;
+}
+
+#option_div:hover {
+    cursor: pointer;
+}
+
+.nav_div {
+    text-align: center;
+    width: 100%;
+}
+
+.nav_div:hover {
+    font-weight: bold;
+}
+
+.public {
+    text-align: center;
+    height: 40px;
+    padding-top: 3px;
+    font-size: larger;
+    background-color: honeydew;
+}
+
+#year_select {
+    border-left: 2px dotted darkcyan;
+    border-right: 2px dotted darkcyan;
+    background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.1"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: black;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+    background-attachment: fixed;
+}
+
+#year {
+    height: 35px;
+    width: 75px;
+    text-align: center;
+    font-size: larger;
+    background-color: honeydew;
+    border: none;
+    background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.1"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: black;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+    background-attachment: fixed;
+}
+
+#year:hover {
+    height: 35px;
+    width: 75px;
+    text-align: center;
+    font-size: larger;
+    background-color: honeydew;
+    border-bottom: 2px solid darkcyan;
+}
+
+#main_div {
+    line-height: 1.75;
+    font-size: 20px;
+    columns: 2;
+    padding: 0 5px 0 5px;
+    white-space: nowrap;
+    overflow: scroll;
+    scrollbar-width: none;
+    transition: all ease-in 0.5s;
+    border-left: 2px dotted darkcyan;
+    border-right: 2px dotted darkcyan;
+    background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.1"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: black;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+    background-attachment: fixed;
+}
+
+#main_div > span:hover {
+    font-weight: bold;
+}
+
+#main_div > span {
+    scrollbar-width: none;
+    overflow-y: scroll;
+    display: block;
+}
+
+.day_of_week {
+    font-size: x-small;
+    vertical-align: middle;
+}
+
+#special_note {
+    padding: 0 5px 0 5px;
+    color: darkcyan;
+    font-size: 17px;
+    line-height: 1.75;
+    text-justify: inter-word;
+    text-align: justify;
+    border-left: 2px dotted darkcyan;
+    border-right: 2px dotted darkcyan;
+    background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.1"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: black;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+    background-attachment: fixed;
+}
+
+#special_note > span{
+    font-weight: bold;
+}
+
+.pakshya {
+    font-size: x-small;
+    vertical-align: middle;
+}
+
+.national {
+    color: crimson !important;
+}
+
+.specific {
+    color: red !important;
+}
+
+.selected {
+    border: 2px solid darkcyan;
+    border-bottom: none;
+    border-radius: 10px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    font-weight: bolder;
+    transition: 0.2s;
+    background: url('../assets/brihat_events_logo.svg');
+    background-size: auto 100%;
+    background-blend-mode: color-burn;
+    background-color: honeydew;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.not_selected {
+    border-bottom: 2px solid darkcyan;
+}
+
+#top {
+    position: sticky;
+    top: 0px;
+    background-color: white;
+    z-index: 10;
+}
+
+#compiled_by_footer {
+    position: sticky;
+    bottom: 0px;
+    background-color: white;
+    z-index: 10;
+    border-top: 2px solid darkcyan;
+}
+
+@media screen and (max-width: 600px) {
+    #option_div {
+        display: flex;
+        justify-content: space-around;
+        font-size: medium;
+    }
+
+    #main_div {
+        line-height: 1.75;
+        font-size: 14px;
+        columns: 1;
+    }
+
+    #special_note {
+        line-height: 1.75;
+        font-size: 12px;
+    }
+
+    .pakshya {
+        display: none;
+    }
+}
+
+@media print {
+    @page {
+        size: 297mm 210mm;
+        margin: 5mm;
+    }
+
+    #year_select, #year {
+        background: honeydew;
+    }
+
+    #main_div {
+        columns: 3;
+        background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.3"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: darkgray;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+        background-attachment: scroll;
+    }
+
+    #special_note {
+        background: url('data:image/svg+xml; utf8, <svg style="transform:rotate(-5deg)" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 50" fill-opacity="0.3"><style>.svgtext {font: italic 24px serif;font-weight: lighter; fill: darkgray;}</style><text x="0" y="30" class="svgtext">Compiled by BRIHAT</text></svg>') 0 0/200px 45px honeydew;
+        background-attachment: scroll;
+    }
+
+    .pakshya {
+        display: none;
+    }
+
+    #compiled_by_header::after, #compiled_by_footer::before {
+        content: "https://events.brihatrb.com.np";
+    }
+
+    #compiled_by_header::before {
+        content: "Events and Holidays";
+    }
+
+    #compiled_by_header, #compiled_by_footer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        text-align: center;
+    }
+    
+    #list_view {
+        display: none;
+    }
+}

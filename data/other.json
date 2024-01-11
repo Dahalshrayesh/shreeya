@@ -1,0 +1,85 @@
+{
+  "author": "Brihat Ratna Bajracharya (brihatbajracharya@gmail.com)",
+  "data": {
+    "2017": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-29": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+
+      ]
+    },
+    "2018": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-28": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+  
+      ]
+    },
+    "2019": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-27": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+   
+      ]
+    },
+    "2020": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-26": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+   
+      ]
+    },
+    "2021": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-31": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+  
+      ]
+    },
+    "2022": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-30": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+  
+      ]
+    },
+    "2023": {
+      "mm-dd": [
+        "event_EN",
+        "event_NP"
+      ],
+      "01-29": [
+        "World Leprosy Day",
+        "विश्व कुष्ठरोग दिवस"
+   
+      ]
+    }
+  },
+  "other_start": 2017,
+  "other_end": 2024,
+  "note": "Maintained in AD for easy reference"
+}
